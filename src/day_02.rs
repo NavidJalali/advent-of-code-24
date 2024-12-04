@@ -1,5 +1,5 @@
 use crate::fs::read_day;
-use std::{collections::HashMap, fmt::Debug, io, num::ParseIntError, str::FromStr};
+use std::{fmt::Debug, io, num::ParseIntError, str::FromStr};
 
 struct Report {
   levels: Vec<Level>,
