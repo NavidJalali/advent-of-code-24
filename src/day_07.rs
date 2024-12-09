@@ -114,6 +114,7 @@ fn evals_to(components: &[u64], ops: &[BinOp], mut target: u64) -> bool {
         }
       }
       BinOp::Concat => {
+        let bad_width = (current as f64).log10().ceil() as u32;
         let width: u32 = current.ilog10() + 1;
         let mult = 10_u64.pow(width);
         let target_end = target % mult;
@@ -198,6 +199,10 @@ mod tests {
   #[test]
   fn test_part_1() {
     assert_eq!(part_1().unwrap(), 10741443549536);
+  }
+
+  fn test_part_2() {
+    assert_eq!(part_2().unwrap(), 500335179214836);
   }
 
   #[test]
