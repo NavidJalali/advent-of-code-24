@@ -6,10 +6,11 @@ mod day_05;
 mod day_06;
 mod day_07;
 mod day_08;
+mod day_09;
 mod fs;
 
 fn main() {
-  use day_08::*;
+  use day_09::*;
   println!("Start");
   let start = std::time::Instant::now();
   let result_1 = part_1();
