@@ -76,9 +76,6 @@ impl BinOp {
 }
 
 fn evals_to(components: &[u64], ops: &[BinOp], mut target: u64) -> bool {
-  // there are no precedence rules, so evaluating backwards is actually good
-  // it gives us better short-circuiting opportunities
-
   let mut cursor = components.len() - 1;
   let mut current = components[cursor];
   let mut op = ops[cursor - 1];
@@ -114,7 +111,6 @@ fn evals_to(components: &[u64], ops: &[BinOp], mut target: u64) -> bool {
         }
       }
       BinOp::Concat => {
-        let bad_width = (current as f64).log10().ceil() as u32;
         let width: u32 = current.ilog10() + 1;
         let mult = 10_u64.pow(width);
         let target_end = target % mult;
